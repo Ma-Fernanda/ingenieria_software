@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo de Productos | FitZone</title>
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/estiloscss.css"> 
+    <script type="text/javascript" src="js/js.js"></script>
+
+    <script>
+    function agregarAlCarrito(producto_id) {
+        fetch('agregar_al_carrito.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: 'producto_id=' + producto_id
+        })
+        .then(response => response.text())
+        .then(data => {
+            const noti = document.getElementById('notificacion-carrito');
+            noti.textContent = 'Producto agregado al carrito';
+            noti.style.display = 'block';
+            setTimeout(() => noti.style.display = 'none', 3000);
+        });
+        return false;
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Barra de Navegación -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="img/fitzone.png" alt="Logo" width="100" height="80" class="d-inline-block align-text-top">
+                    FitZone</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" 
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="proyecto.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo de Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="iniciar_sesion.html">Iniciar Sesión</a></li>
+                        <li class="nav-item"><a class="nav-link" href="registro.html">Registrarse</a></li>
+
+                        <li class="nav-item"><a class="nav-link active" href="carrito.php">Carrito de Compras</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Notificación -->
+        <div id="notificacion-carrito" style="display:none; background:#d4edda; padding:10px; color:#155724; text-align:center; margin:10px 0;">
+        </div>
+
+        <main>
+            <section class="my-4 text-center">
+                <h1>Catálogo de Productos</h1>
+                <p>Descubra nuestra gran variedad de ropa y zapatos disponibles listos para hacerlo sentir comodo siempre que este haciendo ejercicio.</p>
+                <p>Hasta la puerta de su hogar, no te molestes en ir a las tiendas, nosotros le llevamos sus productos hasta su domicilio.</p>
+            </section>
+
+            <!-- Ropa Deportivas -->
+            <section id="deportiva" class="my-5">
+                <h2 class="text-center">Ropa Deportiva</h2><br>
+                <div class="row">
+
+            <!---Catalogo de Productos-->
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/pans1.png" alt="pans-1" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Pans Adidas<br><center>$700.00 MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(1)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button></center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/tenis1.png" alt="tenis-4" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Tenis Adidas<br><center>$1500.00 MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(2)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button>
+</center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/camisa2.png" alt="cam-2" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Camisa Adidas<br><center>$400.00 MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(3)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button>
+</center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/pans2.png" alt="pans3" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Pans Nike<br><center>$600.00 MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(4)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button>
+</center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/tenis2.png" alt="tenis4" width="100" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Tenis Nike<br><center>$1700.00 MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(5)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button>
+</center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/camisa3.png" alt="cam-3" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Camisa Nike<br><center>$300. MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(6)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button>
+</center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/sud1.png" alt="sud-1" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Sudadera Adidas<br><center>$500.00 MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(7)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button>
+</center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/camisa5.png" alt="cam-5" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Camisa Puma<br><center>$300.00 MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(8)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button>
+</center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/tenis3.png" alt="tenis3" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Tenis Pumas<br><center>$1500.00 MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(9)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button>
+</center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/tenis6.png" alt="tenis2" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Converse<br><center>$1500.00 MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(10)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button>
+</center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <center><img src="img/gorra1.png" alt="gorra1" class="card-img-top"></center>
+                            <div class="card-body">
+                                <h5 class="card-title">Gorra New Era<br><center>$500.00 MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(11)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button>
+</center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/camiseta1.png" alt="cam-1" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Camiseta Sin Mangas Hecha de Algodón<br><center>$123.50 MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(12)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button>
+</center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/camiseta6.png" alt="camiseta6" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Camiseta Sin Mangas<br><center>$143.50 MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(13)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button>
+</center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/camiseta2.png" alt="cam-2" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Camiseta<br><center>$157.00 MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(14)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button></center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/camiseta3.png" alt="cam-3" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Camiseta con mangas <br><center>$140.00MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(15)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button></center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/rop1.png" alt="rop-1" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Conjunto Deportivo Rosa <br><center>$340.00MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(16)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button></center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/rop2.png" alt="rop2" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Conjunto Deportivo negro-morado <br><center>$299.90MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(17)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button></center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/conj1.png" alt="conj1" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Conjunto Gimnasio <br><center>$780.00MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(18)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button></center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/lic1.png" alt="lic1" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Licra Deportiva <br><center>$200.00MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(19)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button></center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/h1.png" alt="lic2" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Short para Hombre <br><center>$199.90MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(20)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button></center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img/licrah1.png" alt="lich1" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Licra para Hombre <br><center>$159.90MXN</center></h5>
+                                <form onsubmit="return agregarAlCarrito(21)">
+                                <center><button type="submit" class="btn btn-primary"> Agregar al carrito</button></center>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>              
+        </main>
+
+        <footer>
+                <div class="cajFooter">
+                    <h4>Redes Sociales</h4>
+                    <P>Maria Fernanda Aguas Rojas <br>David Yael Ramirez Toriz</P>
+                    <section id="redes-sociales">
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </section>
+                    
+                    &copy; 2025 Ingenieria de Software. Todos los derechos reservados.
+                </div>
+            </footer>
+    </div>
+</body>
+</html>
